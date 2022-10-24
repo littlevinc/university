@@ -30,12 +30,12 @@ main:
 	; activates the fist led
 	ldi r16, 0b00000001
 	out PORTD, r16
-	;rcall delay
+	rcall delay
 
 loopa:	
 	lsl r16 ; logical shift left -> wird mit 0 aufgefüllt von rechts
 	out PORTD, r16
-	;rcall delay
+	rcall delay
 	cp r16,r17 ; compares to registers and branches if they are equal
 	breq equal ; branch equal
 	rjmp loopa ; when not equl jump back to loop
@@ -43,24 +43,24 @@ loopa:
 equal:
 	ldi r16, 0b0000001
 	out PORTB, r16
-	;rcall delay
+	rcall delay
 	lsl r16
 	out PORTB, r16
-	;rcall delay
+	rcall delay
 	lsr r16
 	out PORTB, r16
-	;rcall delay
+	rcall delay
 	lsr r16
 	out PORTB, r16
 
 	ldi r16, 0b10000000
 	out PORTD, r16
-	;rcall delay
+	rcall delay
 
 loopb:
 	lsr r16
 	out PORTD, r16
-	;rcall delay
+	rcall delay
 	cp r16, r17
 	breq end
 	rjmp loopb
